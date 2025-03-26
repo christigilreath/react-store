@@ -1,0 +1,20 @@
+header {
+  background-color: blue;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  /* background-color: blue; */
+  color: white;
+}
+
+.navigation div {
+  margin: 1em;
+
+  display: flex;
+}
+
+.navigation div p {
+  margin: 1em;
+}
