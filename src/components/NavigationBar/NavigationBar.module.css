@@ -18,3 +18,14 @@ header {
 .navigation div p {
   margin: 1em;
 }
+
+a {
+  margin: 1em;
+  text-decoration: none;
+  color: inherit;
+  font-size: 1.5rem;
+}
+
+a:hover {
+  color: gray;
+}
