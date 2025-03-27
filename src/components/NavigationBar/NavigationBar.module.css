@@ -9,21 +9,15 @@ header {
   color: white;
 }
 
-.navigation div {
-  margin: 1em;
-
-  display: flex;
-}
-
 .navigation div p {
   margin: 1em;
 }
 
 a {
-  margin: 1em;
+  margin-left: 1em;
   text-decoration: none;
   color: inherit;
-  font-size: 1.5rem;
+  /* font-size: 1.5rem; */
 }
 
 a:hover {
