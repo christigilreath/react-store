@@ -6,8 +6,9 @@
 
 body {
   min-width: 320px;
+  /* max-width: 100%; */
   min-height: 100vh;
-  font-size: 3vw;
+  font-size: 2vw;
 }
 
 header {
