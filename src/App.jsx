@@ -4,10 +4,12 @@ import { Outlet } from "react-router-dom";
 // import './App.css'
 
 function App() {
+  const [cart, setCart] = useState([]);
+
   return (
     <>
-      <NavigationBar />
-      <Outlet />
+      <NavigationBar cart={cart} />
+      <Outlet context={setCart} />
     </>
   );
 }

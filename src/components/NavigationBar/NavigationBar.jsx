@@ -1,6 +1,14 @@
 import styles from "./NavigationBar.module.css";
 import { Link } from "react-router-dom";
-function NavigationBar() {
+import { useState } from "react";
+
+function NavigationBar({ cart }) {
+  let itemCount = 0;
+  if (cart.length > 0) {
+    itemCount = cart
+      .map((item) => item.amount)
+      .reduce((acc, curr) => acc + curr);
+  }
   return (
     <header>
       <h1>My Store</h1>
@@ -10,7 +18,7 @@ function NavigationBar() {
           <Link to="productpage">Store</Link>
         </div>
         <div>
-          <Link to="cartpage">Cart</Link>
+          <Link to="cartpage">{`Cart(${itemCount})`}</Link>
         </div>
       </div>
     </header>

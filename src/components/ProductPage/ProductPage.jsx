@@ -8,7 +8,9 @@ function ProductPage() {
   const [products, setProducts] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
   useEffect(() => {
+    const abortController = new AbortController();
     async function getProducts() {
       try {
         const response = await fetch("https://fakestoreapi.com/products");
@@ -20,10 +22,15 @@ function ProductPage() {
         setLoading(false);
       } catch (e) {
         setError(e);
+      } finally {
         setLoading(false);
       }
     }
     getProducts();
+
+    return () => {
+      abortController.abort();
+    };
   }, []);
 
   if (loading) {
