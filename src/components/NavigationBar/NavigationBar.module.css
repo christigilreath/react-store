@@ -1,11 +1,7 @@
-header {
-  background-color: blue;
-}
-
 .navigation {
   display: flex;
   justify-content: space-between;
-  /* background-color: blue; */
+
   color: white;
 }
 
@@ -13,13 +9,12 @@ header {
   margin: 1em;
 }
 
-a {
+.navLink {
   margin-left: 1em;
   text-decoration: none;
   color: inherit;
-  /* font-size: 1.5rem; */
 }
 
-a:hover {
+.navLink:hover {
   color: gray;
 }

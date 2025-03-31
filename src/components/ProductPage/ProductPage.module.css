@@ -1,8 +1,4 @@
-h4 {
-  font-size: 1.5vw;
-}
-
-button {
+.amountBtn {
   width: 3vw;
   height: 3vw;
   font-size: inherit;
@@ -13,7 +9,7 @@ button {
   margin: 0.5vw;
 }
 
-input {
+.amountInput {
   width: 3vw;
   height: 3vw;
   font-size: inherit;

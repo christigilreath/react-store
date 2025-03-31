@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <NavigationBar cart={cart} />
-      <Outlet context={setCart} />
+      <Outlet context={[cart, setCart]} />
     </>
   );
 }

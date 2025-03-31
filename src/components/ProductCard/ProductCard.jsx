@@ -1,20 +1,46 @@
 import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
-function ProductCard({ title, src, price, styles }) {
-  const setCart = useOutletContext();
+function ProductCard({ id, title, src, price, styles }) {
+  const [cart, setCart] = useOutletContext();
   const [inputValue, setInputValue] = useState(0);
-  const item = { title: title, src: src, price: price, amount: inputValue };
-  function increaseItemAmount() {
+  const item = {
+    id: id,
+    src: src,
+    title: title,
+    src: src,
+    price: price,
+    quantity: Number(inputValue),
+  };
+  function increaseItemQuantity() {
     return setInputValue(inputValue + 1);
   }
 
-  function decreaseItemAmount() {
+  function decreaseItemQuantity() {
     if (inputValue > 0) {
       return setInputValue(inputValue - 1);
     }
   }
 
-  function handleAddToCart() {
+  function handleAddToCart(item) {
+    console.log(item);
+    if (item.quantity === 0) {
+      return;
+    }
+    const index = cart.findIndex((cartItem) => cartItem.id === item.id);
+    if (index >= 0) {
+      setCart(
+        cart.map((cartItem) => {
+          if (cartItem.id === item.id) {
+            const newQuantity = cartItem.quantity + item.quantity;
+            return { ...cartItem, quantity: newQuantity };
+          } else {
+            return { ...cartItem };
+          }
+        })
+      );
+      return;
+    }
+
     setCart((prev) => [...prev, item]);
     setInputValue(0);
   }
@@ -29,15 +55,20 @@ function ProductCard({ title, src, price, styles }) {
             {"$"}
             {price}
           </p>
-          <button onClick={decreaseItemAmount}>-</button>
+          <button className={styles.amountBtn} onClick={decreaseItemQuantity}>
+            -
+          </button>
           <input
+            className={styles.amountInput}
             type="number"
             onChange={(e) => setInputValue(e.target.value)}
             value={inputValue}
           />
-          <button onClick={increaseItemAmount}>+</button>
+          <button className={styles.amountBtn} onClick={increaseItemQuantity}>
+            +
+          </button>
         </div>
-        <button className={styles.add} onClick={handleAddToCart}>
+        <button className={styles.add} onClick={() => handleAddToCart(item)}>
           Add to Cart
         </button>
       </div>

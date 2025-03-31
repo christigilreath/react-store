@@ -1,0 +1,25 @@
+.content {
+  width: 100vw;
+}
+.cartCard {
+  height: 20vh;
+  margin: 1vw;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+}
+.cartCard > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.removeBtn {
+  font-size: inherit;
+  width: 50%;
+  height: 50%;
+}
+
+.thumbnail {
+  max-height: 20vh;
+  width: auto;
+}

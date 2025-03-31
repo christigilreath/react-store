@@ -48,6 +48,7 @@ function ProductPage() {
             {products.map((product) => (
               <div key={product.id} className={styles.card}>
                 <ProductCard
+                  id={product.id}
                   title={product.title}
                   src={product.image}
                   price={product.price}
